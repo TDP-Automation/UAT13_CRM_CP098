@@ -68,7 +68,8 @@ End Sub
 Sub FlujoWIC()
 	If ucase(WIC_Activa) = "SI" Then
 		
-RunAction "WIC", oneIteration
+'RunAction "WIC", oneIteration
+wait 1
 	End If
 End Sub
 Sub SeleccionarPlan()
@@ -765,11 +766,11 @@ Sub GestionLogistica()
 					Wend
 				Select Case TipoAlta
 					Case "Alta solo SIM"
-					   JavaWindow("Ejecutivo de interacción").JavaDialog("Buscar: Orden > Solicitar").JavaTable("SearchJTable").DoubleClickCell "#2","#4"
+					   JavaWindow("Ejecutivo de interacción").JavaDialog("Buscar: Orden > Solicitar").JavaTable("SearchJTable").DoubleClickCell "#1","#4"
 						Set shell = CreateObject("Wscript.Shell") 
 						shell.SendKeys "{ENTER}"
 						wait 2
-						JavaWindow("Ejecutivo de interacción").JavaDialog("Buscar: Orden > Solicitar").JavaTable("SearchJTable").SetCellData "#2","#4",str_idSim
+						JavaWindow("Ejecutivo de interacción").JavaDialog("Buscar: Orden > Solicitar").JavaTable("SearchJTable").SetCellData "#1","#4",str_idSim
 						wait 2
 					Case "Alta equipo + SIM"
 					  JavaWindow("Ejecutivo de interacción").JavaDialog("Buscar: Orden > Solicitar").JavaTable("SearchJTable").DoubleClickCell "#1","#4"
